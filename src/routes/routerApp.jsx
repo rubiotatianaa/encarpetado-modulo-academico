@@ -1,12 +1,17 @@
-
 import Login from "../pages/Login";
 import Notas from "../pages/Notas";
-import ProtegerRutas from "../components/ProtegerRuta";
+import Home from "../pages/Home";
+import ProtegerRutas from "../componentes/ProtegerRutas";
 
 export const routerApp = [
   {
     path: "/",
     element: <Login />,
+  },
+  
+  {
+    path: "/home",
+    element: <ProtegerRutas proteger={<Home />} />,
   },
   {
     path: "/notas",
