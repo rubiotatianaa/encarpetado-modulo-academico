@@ -1,8 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import endPoints from "../api/endPoints"; 
-import { generarToken, alertaRedireccion } from "../utils/helpers";
+import { endPoints } from "../api/apiModuloAcademico";
+import {alertaRedireccion } from "../utils/alertas";
+import "./Login.css";
+
+
+const generarToken = () => {
+  return Math.random().toString(36).substring(2);
+};
+
 
 function Login() {
   const [getEmail, setEmail] = useState("");
@@ -49,9 +55,11 @@ function Login() {
       alert("Error de credenciales");
     }
   }
+  
 
-  return (
-    <form className="form" onSubmit={iniciarSesion}>
+ return (
+  <div className="login-wrapper">
+    <form className="form-container" onSubmit={iniciarSesion}>
       <div className="flex-column">
         <label>Email</label>
       </div>
@@ -93,18 +101,8 @@ function Login() {
       <p className="p">
         Don't have an account? <span className="span">Sign Up</span>
       </p>
-      <p className="p line">Or With</p>
-
-      <div className="flex-row">
-        <button type="button" className="btn google">
-          Google
-        </button>
-        <button type="button" className="btn apple">
-          Apple
-        </button>
-      </div>
     </form>
-  );
+  </div>
+);
 }
-
 export default Login;

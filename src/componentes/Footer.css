@@ -1,0 +1,59 @@
+
+.footer {
+  width: 100%;
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+
+.footer::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 1%, transparent 1%) repeat;
+  background-size: 50px 50px;
+  animation: floatBubbles 30s linear infinite;
+  z-index: 0;
+}
+
+
+@keyframes floatBubbles {
+  0% { transform: rotate(0deg) translate(0, 0); }
+  100% { transform: rotate(360deg) translate(0, 0); }
+}
+
+
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+
+.footer-bottom p {
+  margin: 0;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.footer-bottom p:hover {
+  color: #a0c4ff; 
+}
+
+
+@media (max-width: 768px) {
+  .footer-bottom {
+    font-size: 0.85rem;
+  }
+}
