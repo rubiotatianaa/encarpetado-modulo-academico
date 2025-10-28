@@ -14,6 +14,8 @@ const Notas = () => {
       .then((response) => response.json())
       .then((data) => {
         setNotas(data);
+        console.log("hola")
+        console.log(data)
         setNotasFiltradas(data); 
       })
       .catch((error) => console.log(error));
@@ -87,26 +89,23 @@ const Notas = () => {
           <table className="tabla-notas">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Usuario</th>
-                <th>Estudiante ID</th>
-                <th>Materia</th>
-                <th>Matricula</th>
-                <th>Nota</th>
+                <th>Fecha</th>
+                <th>Tipo Evalucion</th>
+                <th>Valor</th>
+               
               </tr>
             </thead>
-            <tbody>
-              {notasFiltradas.map((nota) => (
-                <tr key={nota.id}>
-                  <td>{nota.id}</td>
-                  <td>{nota.profesor_id}</td>
-                  <td>{nota.estudiante_id}</td>
-                  <td>{nota.materia}</td>
-                  <td>{nota.tipo_evaluacion}</td>
+           <tbody>
+              {notasFiltradas.map((nota, index) => (
+                <tr key={nota.id || `${nota.materia}-${nota.estudiante_id}-${index}`}>
+                  <td>{nota.fecha}</td>
+                  <td>{nota.tipoEvaluacion}</td>
                   <td>{nota.valor}</td>
+                  <td>{nota.nota}</td>
                 </tr>
               ))}
             </tbody>
+
           </table>
         </div>
       </div>

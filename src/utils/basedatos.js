@@ -1,4 +1,4 @@
-export let usuarios = [
+/*export let usuarios = [
   {
     id: 1,
     nombre: "Ana Torres",
@@ -20,4 +20,4 @@ export let usuarios = [
     contraseña: "lauraDev",
     rol: "profesor"
   }
-];
+];*/

@@ -18,7 +18,9 @@ function Login() {
 
   useEffect(() => {
     
-    fetch(endPoints.usuarios)
+    fetch(endPoints.usuarios,{
+      method:"GET",
+    })
       .then((response) => response.json())
       .then((data) => setUsuarios(data))
       .catch((error) => console.log(error));
@@ -31,15 +33,17 @@ function Login() {
   }, [navigate]);
 
   function buscarUsuario() {
+    console.log(usuarios)
     return usuarios.find(
       (usuario) =>
-        getEmail === usuario.correo && getPassword === usuario.contraseña
+        getEmail == usuario.correo && getPassword == usuario.contrasena
     );
   }
 
   function iniciarSesion(e) {
     e.preventDefault(); 
     const usuarioEncontrado = buscarUsuario();
+    console.log(usuarioEncontrado)
 
     if (usuarioEncontrado) {
       const tokenAcceso = generarToken();
@@ -94,15 +98,14 @@ function Login() {
         <span className="span">Forgot password?</span>
       </div>
 
-      <button type="submit" className="button-submit">
-        Sign In
-      </button>
+   ...
+<button type="submit" className="button-submit">
+  Sign In
+</button>
 
-      <p className="p">
-        Don't have an account? <span className="span">Sign Up</span>
-      </p>
-    </form>
-  </div>
+</form>
+</div>
 );
 }
 export default Login;
+

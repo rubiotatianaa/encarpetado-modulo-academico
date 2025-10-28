@@ -41,6 +41,17 @@ const Header = () => {
           </ul>
         </nav>
 
+        {/* Navegación */}
+        <nav className="header-nav">
+          <ul className="nav-list">
+            <li className="nav-item">
+              <Link to="/graficos" className="nav-link">
+                Graficos
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
         {/* Información de usuario */}
         <div className="header-user">
           <div className="user-profile">
